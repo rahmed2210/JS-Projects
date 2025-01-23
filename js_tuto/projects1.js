@@ -6,7 +6,8 @@ console.log('Hello', name, 'Welcome to our game!')
 
 const shouldWePlay = prompt('Do you want to play? ')
 
-
+const condition = shouldWePlay === 'yes'
+console.log(condition)
 
 
 
