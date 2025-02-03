@@ -1,34 +1,22 @@
-// NOTE APP
+// NOTE APP   <------->   DOM --> Document Object Model
 
-document.querySelector('p')
-/*
-// Query and remove
-const p = document.querySelector('p')
-p.remove()
-*/
+const notes = [{
+    title: 'My next trip',
+    body: 'I would like to go to Spain'
+}, {
+    title: 'Habbits to work on',
+    body: 'Exercise, Eating a bit better'
+}, {
+    title: 'Office modification',
+    body: 'Get a new seat'
+}]
 
 
-// Query all and remove
-const ps = document.querySelectorAll('p')
-
-/*
-// forEach --> allows us to iterate over each thing we pass in our callback. used forEach to do something for each paragraph
-ps.forEach(function(p) {
-    p.remove()
+document.querySelector('button').addEventListener('click', function (e) {
+    e.target.textContent = 'This button was clicked'
 })
-*/
 
-/*
-// Read text value
-ps.forEach(function(p) {
-    console.log(p.textContent)
-})
-*/
 
-// Write text value
-ps.forEach(function(p) {
-    p.textContent = ' ****** '
-})
 
 
 
