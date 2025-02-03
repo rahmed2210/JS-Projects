@@ -1,3 +1,5 @@
+// NOTE APP
+
 document.querySelector('p')
 /*
 // Query and remove
