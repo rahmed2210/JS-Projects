@@ -12,11 +12,16 @@ const notes = [{
 }]
 
 
-document.querySelector('button').addEventListener('click', function (e) {
+document.querySelector('#create-note').addEventListener('click', function (e) {
     e.target.textContent = 'This button was clicked'
 })
 
-
+document.querySelector('#remove-all').addEventListener('click', function () {
+    document.querySelectorAll('.note').forEach(function (note) {
+        note.remove()
+    })
+})
+    
 
 
 
