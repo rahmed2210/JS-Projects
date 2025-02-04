@@ -38,8 +38,10 @@ document.querySelector('#add-todo').addEventListener('click', function (e) {
     console.log('Add a new todo..')
 })
 
-
-
+// Listen for to todo text change
+document.querySelector('#new-todo-text').addEventListener('input', function (e){
+    console.log(e.target.value)
+})
 
 
 
