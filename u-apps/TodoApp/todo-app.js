@@ -17,34 +17,48 @@ const todos = [{
     completed: true
 }]
 
+const filters = {
+    searchText: ''
+}
 
-const incompleteTodos = todos.filter(function (todo) {
-    return !todo.completed
-})
+const renderTodos = function (todos, filters) {
+    const filteredTodos = todos.filter(function (todo) {
+        return todo.text.toLowerCase().includes(filters.searchText.toLowerCase())
+    })
 
-const summary = document.createElement('h2')
-summary.textContent = `You have ${incompleteTodos.length} todos left`
-document.querySelector('body').appendChild(summary)
+    const incompleteTodos = filteredTodos.filter(function (todo) {
+        return !todo.completed
+    })
 
-// How to make a array shows up in html
-todos.forEach(function (todo) {
-    const p = document.createElement('p')
-    p.textContent = todo.text
-    document.querySelector('body').appendChild(p)
-})
+    document.querySelector('#todos').innerHTML = ''
+
+    const summary = document.createElement('h2')
+    summary.textContent = `You have ${incompleteTodos.length} todos left`
+    document.querySelector('#todos').appendChild(summary)
+
+    filteredTodos.forEach(function (todo) {
+        const p = document.createElement('p')
+        p.textContent = todo.text
+        document.querySelector('#todos').appendChild(p)
+    })
+}
+
+renderTodos(todos, filters)
 
 // Listen for new todo creation
 document.querySelector('#add-todo').addEventListener('click', function (e) {
-    console.log('Add a new todo..')
+    console.log('Add a new todo...')
 })
 
-// Listen for to todo text change
-document.querySelector('#new-todo-text').addEventListener('input', function (e){
+// Listen for todo text change
+document.querySelector('#new-todo-text').addEventListener('input', function (e) {
     console.log(e.target.value)
 })
 
-
-
+document.querySelector('#search-text').addEventListener('input', function (e) {
+    filters.searchText = e.target.value
+    renderTodos(todos, filters)
+})
 
 
 
