@@ -18,14 +18,20 @@ const todos = [{
 }]
 
 const filters = {
-    searchText: ''
+    searchText: '',
+//  create a new hide completed filter (default false)
+    hideCompleted: false 
 }
 
+// renderTodos  -->
 const renderTodos = function (todos, filters) {
     const filteredTodos = todos.filter(function (todo) {
-        return todo.text.toLowerCase().includes(filters.searchText.toLowerCase())
-    })
+        const searchTextMatch = todo.text.toLowerCase().includes(filters.searchText.toLowerCase())
+        const hideCompletedMatch = !filters.hideCompleted || !todo.completed
 
+        return searchTextMatch && hideCompletedMatch
+    })
+    
     const incompleteTodos = filteredTodos.filter(function (todo) {
         return !todo.completed
     })
@@ -59,6 +65,16 @@ document.querySelector('#new-todo').addEventListener('submit', function (e) {
     renderTodos(todos, filters)
     e.target.elements.text.value = ''
 })
+
+// Event listener for checkbox
+document.querySelector('#hide-completed').addEventListener('change', function (e) {
+//  update hide completed an rerender list on checkbox change
+    filters.hideCompleted = e.target.checked 
+    renderTodos(todos, filters) 
+})
+
+
+
 
 
 
