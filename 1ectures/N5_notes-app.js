@@ -24,7 +24,7 @@ const renderNotes = function (notes, filter) {
     })
     
 // Duplicate Notes
-      document.querySelector('#notes').innerHTML = ''  
+    document.querySelector('#notes').innerHTML = ''  
     
     filteredNote.forEach(function (note) {
         const noteEl = document.createElement('p')
