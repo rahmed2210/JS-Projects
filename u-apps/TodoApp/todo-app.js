@@ -17,6 +17,14 @@ const todos = [{
     completed: true
 }]
 
+
+
+// to get data back and actually print the data
+const userJSON = localStorage.getItem('user')
+const user = JSON.parse(userJSON) // JSON.parse -> to read our object
+console.log(`${user.name} is ${user.age}`)
+
+
 const filters = {
     searchText: '',
 //  create a new hide completed filter (default false)
