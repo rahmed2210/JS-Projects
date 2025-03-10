@@ -39,9 +39,43 @@ window.addEventListener('storage', function (e) {
 })
 
 const now = moment()
-console.log(now.toString())
+//now.add(1, 'year').subtract(20, 'days')
 
 console.log(now.toString())
+now.minute(1)
+console.log(now.minute())
+console.log(now.toString())
+
+// November 3rd, 2003
+console.log(now.format('MMMM Do, YYYY'))
+
+// Time from now
+now.subtract(1, 'week').subtract(20, 'days')
+console.log(now.fromNow())
+
+const nowTimestamp = now.valueOf()
+
+console.log(moment(nowTimestamp).toString())
+
+//-------------------------------------------
+
+// 1. Create a new moment
+// 2. set the month, day, and year to your birthday
+// 3. Use format to print it in the following way: jan 6, 1991
+
+const birthday = moment()
+birthday.year(1981).month(7).date(23)
+console.log(birthday.format('MMM D, YYYY'))
+
+
+
+
+
+
+
+
+
+
 
 
 
